@@ -57,7 +57,7 @@ stage ("Execute Tests"){
             unstash 'LISAv2'
             CURRENT_REGION = item.split(" ")[0]
             CURRENT_SIZE = item.split(" ")[1]
-            EMAIL_BODY += "${Counter}.\t\tCURRENT_SIZE\t\tCURRENT_REGION\n"
+            EMAIL_BODY += "${Counter}.\t\t${CURRENT_SIZE}\t\t${CURRENT_REGION}\n"
             withCredentials([file(credentialsId: 'Azure_Secrets_File', variable: 'Azure_Secrets_File')]){
                 echo "LisaV2: Runing provision tests in ${CURRENT_REGION} with VM size ${CURRENT_SIZE}..."
                 RunPowershellCommand(".\\Run-LisaV2.ps1" +
