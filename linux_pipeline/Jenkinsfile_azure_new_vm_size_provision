@@ -8,15 +8,15 @@ env.TODAY_SIZES = ""
 env.CURRENT_SIZE = ""
 env.CURRENT_REGION = ""
 env.EMAIL_BODY = "SR\t\tSize\t\tRegion\n"
-env.NEW_FILE = "Z:\\Jenkins_Shared_Do_Not_Delete\\userContent\\shared\\azure-vm-sizes.txt"
-env.OLD_FILE = "Z:\\Jenkins_Shared_Do_Not_Delete\\userContent\\shared\\azure-vm-sizes-base.txt"
+env.NEW_FILE = "C:\\Jenkins_Shared_Do_Not_Delete\\userContent\\shared\\azure-vm-sizes.txt"
+env.OLD_FILE = "C:\\Jenkins_Shared_Do_Not_Delete\\userContent\\shared\\azure-vm-sizes-base.txt"
 env.VM_OUTPUT_FILE = "todaysNewVMs.txt"
 env.TEST_CMD = "BVT-VERIFY-DEPLOYMENT-PROVISION"
 
 stage("Checkout"){
     timeout(120) {
         node("meta_slave"){
-            git "https://github.com/asofron/lis-pipeline.git"
+            git branch:"azure-new-vm", url : "https://github.com/asofron/lis-pipeline.git"
             stash includes: '**', name: 'lis-pipeline'
             cleanWs()
             git "https://github.com/LIS/LISAv2.git"
