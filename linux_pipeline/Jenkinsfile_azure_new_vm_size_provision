@@ -69,7 +69,7 @@ stage ("Execute Tests"){
                 " -StorageAccount 'ExistingStorage_Standard'" +
                 " -OverrideVMSize '${CURRENT_SIZE}'" +
                 " -ExitWithZero"+
-                " -Testcase ${TEST_CMD}"
+                " -TestNames ${TEST_CMD}"
                 )
                  junit "Report\\*-junit.xml"
                 archiveArtifacts "TestResults\\**\\*"
