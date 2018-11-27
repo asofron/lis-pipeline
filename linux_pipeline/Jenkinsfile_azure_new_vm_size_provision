@@ -52,7 +52,7 @@ stage ("Execute Tests"){
         println ("Testing new VMs... ")
         def Counter = 1
         TODAY_SIZES = env.NEW_VMS_EMV.split(",")
-        for( $item in TODAY_SIZES){
+        for( item in TODAY_SIZES){
             cleanWs()
             unstash 'LISAv2'
             CURRENT_REGION = item.split(" ")[0]
